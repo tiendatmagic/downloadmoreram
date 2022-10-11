@@ -15,18 +15,8 @@ function getQuery(query) {
 function getQueryAll(query) {
   return document.querySelectorAll(query);
 }
-var count = JSON.parse(localStorage.getItem("count"));
-if (count == null || count == "") {
-  count = 0;
-}
-var lock = false;
+
 var openmenu = false;
-var canzero = false;
-var canvolume = JSON.parse(localStorage.getItem("canvolume"));
-if (canvolume == null || canvolume == "") {
-  canvolume = true;
-  localStorage.setItem("canvolume", JSON.stringify(canvolume));
-}
 var cansound = JSON.parse(localStorage.getItem("cansound"));
 if (cansound == null || cansound == "") {
   cansound = true;
@@ -37,6 +27,7 @@ if (candarkmode == null || candarkmode == "") {
   candarkmode = false;
   localStorage.setItem("candarkmode", JSON.stringify(candarkmode));
 }
+
 var admobid = {
   interstitial: "ca-app-pub-2636216160874899/8129796215",
 };
@@ -44,8 +35,9 @@ document.addEventListener("deviceready", function () {
   onDeviceReady();
 });
 
+var nrRam = 0;
+
 window.onload = function () {
-  canvolume = JSON.parse(localStorage.getItem("canvolume"));
   cansound = JSON.parse(localStorage.getItem("cansound"));
   candarkmode = JSON.parse(localStorage.getItem("candarkmode"));
 
@@ -60,12 +52,12 @@ window.onload = function () {
   setTimeout(function () {
     getQueryAll("body")[0].classList.add("show");
   }, 100);
-  alert(
-    "Memory:" + cordova.plugins['extended-device-information'].memory +
-    "CPU:" + cordova.plugins['extended-device-information'].cpumhz +
-    "totalstorage:" + cordova.plugins['extended-device-information'].totalstorage +
-    "freestorage:" + cordova.plugins['extended-device-information'].freestorage
-  )
+  // alert(
+  //   "Memory:" + cordova.plugins['extended-device-information'].memory +
+  //   "CPU:" + cordova.plugins['extended-device-information'].cpumhz +
+  //   "totalstorage:" + cordova.plugins['extended-device-information'].totalstorage +
+  //   "freestorage:" + cordova.plugins['extended-device-information'].freestorage
+  // )
 }
 getClass("love")[0].onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
@@ -77,16 +69,7 @@ getClass("bar")[0].onclick = function () {
   } else {
     getClass("list-group")[0].classList.remove("show");
   }
-  if (canzero == false) {
-    getClass("checkbox1")[0].checked = false;
-  } else {
-    getClass("checkbox1")[0].checked = true;
-  }
-  if (canvolume == false) {
-    getClass("checkbox3")[0].checked = false;
-  } else {
-    getClass("checkbox3")[0].checked = true;
-  }
+
   if (cansound == false) {
     getClass("checkbox4")[0].checked = false;
   } else {
@@ -107,24 +90,10 @@ getClass("contentapp")[0].onclick = function () {
 
 
 getId("list1").onclick = function () {
-  if (canzero == false) {
-    canzero = true;
-    getClass("checkbox1")[0].checked = true;
-  } else {
-    canzero = false;
-    getClass("checkbox1")[0].checked = false;
-  }
+
 }
 getId("list3").onclick = function () {
-  if (canvolume == false) {
-    canvolume = true;
-    getClass("checkbox3")[0].checked = true;
-    localStorage.setItem("canvolume", JSON.stringify(canvolume));
-  } else {
-    canvolume = false;
-    getClass("checkbox3")[0].checked = false;
-    localStorage.setItem("canvolume", JSON.stringify(canvolume));
-  }
+
 }
 getId("list4").onclick = function () {
   if (cansound == false) {
@@ -171,3 +140,5 @@ function checkOpenMenu() {
     getClass("list-group")[0].classList.remove("show");
   }
 }
+
+document.getElementsByClassName("nr-ram")[0].innerText = nrRam;
