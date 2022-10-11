@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="theme-color" content="#ff0099" />
+    <title>Tap counter</title>
+    <link rel="stylesheet" href="./css/waves.min.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <div id="app">
+        <div class="menu">
+            <div class="menu-left">
+                <div class="title">
+                    <p>Tap counter</p>
+                </div>
+            </div>
+            <div class="menu-right">
+                <div class="love waves-effect">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="bar waves-effect">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="contentapp">
+
+        </div>
+
+
+
+        <div class="list-group">
+            <li class="waves-effect" id="list5">
+                <span> Dark mode </span>
+
+                <span>
+                    <input type="checkbox" id="hobby" class="checkbox-input checkbox5" name="gender" disabled />
+                    <label for="hobby" class="checkbox-label">
+                        <i class="fa fa-check"></i>
+                    </label>
+                </span>
+            </li>
+            <li class="waves-effect" id="list1">
+                <span> Countdown below 0 </span>
+
+                <span>
+                    <input type="checkbox" id="hobby" class="checkbox-input checkbox1" name="gender" disabled />
+                    <label for="hobby" class="checkbox-label">
+                        <i class="fa fa-check"></i>
+                    </label>
+                </span>
+            </li>
+            <li class="waves-effect" id="list3">
+                <span> Use control volume key </span>
+
+                <span>
+                    <input type="checkbox" id="hobby" class="checkbox-input checkbox3" name="gender" disabled />
+                    <label for="hobby" class="checkbox-label">
+                        <i class="fa fa-check"></i>
+                    </label>
+                </span>
+            </li>
+            <li class="waves-effect" id="list4">
+                <span> Turn on sound </span>
+
+                <span>
+                    <input type="checkbox" id="hobby" class="checkbox-input checkbox4" name="gender" disabled />
+                    <label for="hobby" class="checkbox-label">
+                        <i class="fa fa-check"></i>
+                    </label>
+                </span>
+            </li>
+            <li class="waves-effect" id="list7">
+                <span> Change number value </span>
+            </li>
+            <li class="waves-effect" id="list2">
+                <span> Application information </span>
+            </li>
+
+            <li class="waves-effect" id="list6">
+                <span> Share application </span>
+            </li>
+        </div>
+        <div id="blur"></div>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="./js/waves.min.js"></script>
+    <script src="./js/all.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script>
+        Waves.attach(".waves-effect");
+        Waves.init();
+    </script>
+</body>
+
+</html>
