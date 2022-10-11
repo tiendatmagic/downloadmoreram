@@ -35,7 +35,7 @@ document.addEventListener("deviceready", function () {
   onDeviceReady();
 });
 
-var nrRam = 0;
+
 
 window.onload = function () {
   cansound = JSON.parse(localStorage.getItem("cansound"));
@@ -58,6 +58,18 @@ window.onload = function () {
   //   "totalstorage:" + cordova.plugins['extended-device-information'].totalstorage +
   //   "freestorage:" + cordova.plugins['extended-device-information'].freestorage
   // )
+  // alert(cordova.plugins['extended-device-information'].memory);
+  var nrRam = getRAMInfo();
+  function getRAMInfo() {
+    try {
+      var ram = parseFloat(cordova.plugins['extended-device-information'].memory);
+      return Math.round(ram / 1024 * 100) / 100;
+    }
+    catch {
+      return '?';
+    }
+  }
+  document.getElementsByClassName("nr-ram")[0].innerText = nrRam;
 }
 getClass("love")[0].onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
@@ -85,9 +97,6 @@ getClass("contentapp")[0].onclick = function () {
   openmenu = false;
   checkOpenMenu();
 }
-
-
-
 
 getId("list1").onclick = function () {
 
@@ -140,5 +149,3 @@ function checkOpenMenu() {
     getClass("list-group")[0].classList.remove("show");
   }
 }
-
-document.getElementsByClassName("nr-ram")[0].innerText = nrRam;
