@@ -69,7 +69,16 @@ function getRAMInfo() {
 document.getElementsByClassName("nr-ram")[0].innerText = nrRam;
 
 getId("downloadram").onclick = function () {
-  getClass("contentapp")[0].innerHTML = '';
+  getClass("contentapp")[0].innerHTML = `
+  <div class="list-ram">
+    <div class="ram waves-effect" id="ram-1">1GB</div>
+    <div class="ram waves-effect" id="ram-2">2GB</div>
+    <div class="ram waves-effect" id="ram-4">4GB</div>
+    <div class="ram waves-effect" id="ram-8">8GB</div>
+    <div class="ram waves-effect" id="ram-16">16GB</div>
+    <div class="ram waves-effect" id="ram-32">32GB</div>
+  </div>
+  `;
 }
 
 window.onload = function () {
