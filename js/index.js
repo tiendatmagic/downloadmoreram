@@ -48,13 +48,12 @@ function getUnit(n) {
 
 function getRAMInfo() {
   try {
-    // var ram = parseFloat(cordova.plugins['extended-device-information'].memory);
-    var ram = 3000;
+    var ram = parseFloat(cordova.plugins['extended-device-information'].memory);
     var unit = "";
     unit = (
       getUnit(ram)
     );
-    document.getElementsByClassName("unit")[0].innerText = unit;
+    getClass("unit")[0].innerText = unit;
     if (ram < 1000) {
       return Math.round(ram * 100) / 100;
     }
@@ -68,6 +67,10 @@ function getRAMInfo() {
 }
 
 document.getElementsByClassName("nr-ram")[0].innerText = nrRam;
+
+getId("downloadram").onclick = function () {
+  getClass("contentapp")[0].innerHTML = '';
+}
 
 window.onload = function () {
   cansound = JSON.parse(localStorage.getItem("cansound"));
