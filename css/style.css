@@ -157,8 +157,9 @@ html {
 }
 .contentapp .information {
   padding: 10px;
-  width: 80%;
-  height: 45%;
+  width: 300px;
+  height: 300px;
+  background-color: red;
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
