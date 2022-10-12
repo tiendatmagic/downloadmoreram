@@ -36,12 +36,25 @@ document.addEventListener("deviceready", function () {
 });
 
 var nrRam = getRAMInfo();
-var unit = getUnit(getRAMInfo());
+function getUnit(n) {
+  ram = n;
+  if (ram < 1000) {
+    return "MB";
+  }
+  else {
+    return "GB";
+  }
+}
 
 function getRAMInfo() {
   try {
     // var ram = parseFloat(cordova.plugins['extended-device-information'].memory);
     var ram = 3000;
+    var unit = "";
+    unit = (
+      getUnit(ram)
+    );
+    document.getElementsByClassName("unit")[0].innerText = unit;
     if (ram < 1000) {
       return Math.round(ram * 100) / 100;
     }
@@ -53,17 +66,8 @@ function getRAMInfo() {
     return '?';
   }
 }
-function getUnit(n) {
-  ram = n;
-  if (ram < 1000) {
-    return "MB";
-  }
-  else {
-    return "GB";
-  }
-}
+
 document.getElementsByClassName("nr-ram")[0].innerText = nrRam;
-document.getElementsByClassName("unit")[0].innerText = unit;
 
 window.onload = function () {
   cansound = JSON.parse(localStorage.getItem("cansound"));
