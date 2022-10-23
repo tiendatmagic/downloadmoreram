@@ -17,11 +17,7 @@ function getQueryAll(query) {
 }
 
 var openmenu = false;
-var cansound = JSON.parse(localStorage.getItem("cansound"));
-if (cansound == null || cansound == "") {
-  cansound = true;
-  localStorage.setItem("cansound", JSON.stringify(cansound));
-}
+
 var candarkmode = JSON.parse(localStorage.getItem("candarkmode"));
 if (candarkmode == null || candarkmode == "") {
   candarkmode = false;
@@ -45,7 +41,6 @@ var setList = `
 document.addEventListener("deviceready", function () {
   onDeviceReady();
 });
-
 
 function openram(ram) {
   setTimeout(function () {
@@ -126,7 +121,6 @@ getId("blur").onclick = function () {
 }
 
 window.onload = function () {
-  cansound = JSON.parse(localStorage.getItem("cansound"));
   candarkmode = JSON.parse(localStorage.getItem("candarkmode"));
 
   if (candarkmode == false) {
@@ -189,7 +183,7 @@ window.onload = function () {
   document.getElementsByClassName("nr-ram")[0].innerText = nrRam;
 }
 getClass("love")[0].onclick = function () {
-  cordova.plugins.market.open("com.tiendatmagic.tapcounter");
+  cordova.plugins.market.open("com.tiendatmagic.downloadmoreram");
 }
 getClass("bar")[0].onclick = function () {
   openmenu = true;
@@ -199,11 +193,7 @@ getClass("bar")[0].onclick = function () {
     getClass("list-group")[0].classList.remove("show");
   }
 
-  if (cansound == false) {
-    getClass("checkbox4")[0].checked = false;
-  } else {
-    getClass("checkbox4")[0].checked = true;
-  }
+
   if (candarkmode == false) {
     getClass("checkbox5")[0].checked = false;
   } else {
@@ -215,23 +205,6 @@ getClass("contentapp")[0].onclick = function () {
   checkOpenMenu();
 }
 
-getId("list1").onclick = function () {
-
-}
-getId("list3").onclick = function () {
-
-}
-getId("list4").onclick = function () {
-  if (cansound == false) {
-    cansound = true;
-    getClass("checkbox4")[0].checked = true;
-    localStorage.setItem("cansound", JSON.stringify(cansound));
-  } else {
-    cansound = false;
-    getClass("checkbox4")[0].checked = false;
-    localStorage.setItem("cansound", JSON.stringify(cansound));
-  }
-}
 getId("list5").onclick = function () {
   if (candarkmode == false) {
     candarkmode = true;
@@ -256,7 +229,7 @@ getId("list2").onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
 }
 getId("list6").onclick = function () {
-  cordova.plugins.codeplay_shareapk.openShare("Tap Counter");
+  cordova.plugins.codeplay_shareapk.openShare("Download More Ram");
 }
 
 function checkOpenMenu() {
