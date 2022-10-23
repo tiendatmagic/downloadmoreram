@@ -96,7 +96,7 @@ function runDownloadRam() {
       clearInterval(run);
       getId("cancelram").classList.remove("bg-danger");
       getId("cancelram").classList.add("bg-success");
-      getId("cancelram").innerHTML = `<button onclick="cancelRam();"> Success</button>`;
+      getId("cancelram").innerHTML = `<button> Success</button>`;
     }
     getId("cancelram").onclick = function () {
       location.reload();
