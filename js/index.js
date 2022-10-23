@@ -98,7 +98,7 @@ function runDownloadRam(ram) {
       getId("cancelram").classList.remove("bg-danger");
       getId("cancelram").classList.add("bg-success");
       getId("cancelram").innerHTML = `<button> Success</button>`;
-      totalram = totalRam();
+      totalram = getRam;
       function totalRam() {
         try {
           return getRAMInfo();
@@ -106,7 +106,8 @@ function runDownloadRam(ram) {
           return getRam;
         }
       }
-      localStorage.setItem("totalram", JSON.stringify(totalram));
+
+      localStorage.setItem("totalram", JSON.stringify(Number(JSON.parse(localStorage.getItem("totalram")) + totalram)));
     }
     getId("cancelram").onclick = function () {
       location.reload();
@@ -152,6 +153,7 @@ window.onload = function () {
   var nrRam = JSON.parse(localStorage.getItem("totalram"));
   if (nrRam == null || nrRam == "") {
     nrRam = getRAMInfo();
+    localStorage.setItem("totalram", JSON.stringify(nrRam));
   }
 
   function getUnit(n) {
