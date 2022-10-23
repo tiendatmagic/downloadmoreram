@@ -83,7 +83,7 @@ function openram(ram) {
       }
       runDownloadRam(ram);
     }
-  }, 300);
+  }, 350);
 }
 var loadram = 0;
 
