@@ -26,6 +26,7 @@ if (candarkmode == null || candarkmode == "") {
 
 var admobid = {
   interstitial: "",
+  banner: ""
 };
 
 var setList = `
@@ -123,7 +124,14 @@ function runDownloadRam(ram) {
       location.reload();
     }
   }, (getRam * 30) / 1.3);
-
+  AdMob.createBanner({
+    adId: admobid.banner,
+    position: AdMob.AD_POSITION.BOTTOM_CENTER,
+    isTesting: true,
+    overlap: false,
+    offsetTopBar: false,
+    bgColor: 'black'
+  });
 }
 
 getId("downloadram").onclick = function () {
