@@ -25,7 +25,7 @@ if (candarkmode == null || candarkmode == "") {
 }
 
 var admobid = {
-  interstitial: "ca-app-pub-2636216160874899/8129796215",
+  interstitial: "",
 };
 
 var setList = `
@@ -71,6 +71,11 @@ function openram(ram) {
     getId("playbox").onclick = function () {
       getId("blur").classList.remove("show");
       getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
+      AdMob.prepareInterstitial({
+        adId: admobid.interstitial,
+        isTesting: true,
+        autoShow: true,
+      });
       runDownloadRam(ram);
     }
   }, 300);
