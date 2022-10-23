@@ -101,13 +101,12 @@ function runDownloadRam(ram) {
       totalram = totalRam();
       function totalRam() {
         try {
-          localStorage.setItem("totalram", JSON.stringify(getRAMInfo() + getRam));
-          return getRAMInfo() + getRam;
+          return getRAMInfo();
         } catch (error) {
-          localStorage.setItem("totalram", JSON.stringify(getRam));
           return getRam;
         }
       }
+      localStorage.setItem("totalram", JSON.stringify(totalram));
     }
     getId("cancelram").onclick = function () {
       location.reload();
