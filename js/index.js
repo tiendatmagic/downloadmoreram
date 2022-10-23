@@ -75,21 +75,36 @@ function openram(ram) {
   }, 300);
 }
 var loadram = 0;
-function runDownloadRam() {
-  setInterval(function () {
 
-    getClass("contentapp")[0].innerHTML = `
+function runDownloadRam() {
+
+  var run = setInterval(function () {
+    if (loadram <= 100) {
+      getClass("contentapp")[0].innerHTML = `
       <div class="information">
       <div class="ramInfo">
         <span> ${loadram}% </span>
       </div>
     </div>
-    <div class="btn waves-effect bg-danger" id="cancelram" onclick="location.reload();">
+    <div class="btn waves-effect bg-danger" id="cancelram">
       <button>Cancel</button>
     </div>
       `;
-    loadram++;
-  }, 1000);
+      loadram++;
+      getId("cancelram").onclick = function () {
+        location.reload();
+      }
+    }
+    else {
+      clearInterval(run);
+      getId("cancelram").classList.remove("bg-danger");
+      getId("cancelram").classList.add("bg-success");
+      getId("cancelram").innerHTML = `<button onclick="cancelRam();"> Success</button>`;
+      getId("cancelram").onclick = function () {
+        location.reload();
+      }
+    }
+  }, 200);
 
 }
 
