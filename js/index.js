@@ -98,6 +98,16 @@ function runDownloadRam(ram) {
       getId("cancelram").classList.remove("bg-danger");
       getId("cancelram").classList.add("bg-success");
       getId("cancelram").innerHTML = `<button> Success</button>`;
+      totalram = totalRam();
+      function totalRam() {
+        try {
+          localStorage.setItem("totalram", JSON.stringify(getRAMInfo() + getRam));
+          return getRAMInfo() + getRam;
+        } catch (error) {
+          localStorage.setItem("totalram", JSON.stringify(getRam));
+          return getRam;
+        }
+      }
     }
     getId("cancelram").onclick = function () {
       location.reload();
@@ -139,7 +149,12 @@ window.onload = function () {
   // alert(cordova.plugins['extended-device-information'].memory);
 
   //
-  var nrRam = getRAMInfo();
+
+  var nrRam = JSON.parse(localStorage.getItem("totalram"));
+  if (nrRam == null || nrRam == "") {
+    nrRam = getRAMInfo();
+  }
+
   function getUnit(n) {
     ram = n;
     if (ram < 1000) {
