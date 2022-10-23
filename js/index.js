@@ -70,13 +70,14 @@ function openram(ram) {
 
       getId("blur").classList.remove("show");
       getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
-      runDownloadRam();
+      runDownloadRam(ram);
     }
   }, 300);
 }
 var loadram = 0;
 
-function runDownloadRam() {
+function runDownloadRam(ram) {
+  var getRam = ram;
   getClass("contentapp")[0].innerHTML = `
   <div class="information">
   <div class="ramInfo">
@@ -101,7 +102,7 @@ function runDownloadRam() {
     getId("cancelram").onclick = function () {
       location.reload();
     }
-  }, 40);
+  }, (getRam * 30) / 1.3);
 
 }
 
