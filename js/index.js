@@ -248,6 +248,14 @@ getId("list5").onclick = function () {
     autoShow: true,
   });
 }
+getId("list1").onclick = function () {
+  getClass("contentapp")[0].innerHTML = `
+  <div class="text-desc">
+  <p> Why is the application not working? </p>
+  <p> As said in the description, this is a prank app for you to prank others. The app doesn't really work </p>
+  </div>
+  `;
+}
 getId("list2").onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
 }
