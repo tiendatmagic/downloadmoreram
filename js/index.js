@@ -31,23 +31,57 @@ if (candarkmode == null || candarkmode == "") {
 var admobid = {
   interstitial: "ca-app-pub-2636216160874899/8129796215",
 };
+
+var setList = `
+<div class="list-ram">
+  <div class="ram waves-effect" id="ram-1" onclick="openram(1)";>1GB</div>
+  <div class="ram waves-effect" id="ram-2" onclick="openram(2)";>2GB</div>
+  <div class="ram waves-effect" id="ram-4" onclick="openram(4)";>4GB</div>
+  <div class="ram waves-effect" id="ram-8" onclick="openram(8)";>8GB</div>
+  <div class="ram waves-effect" id="ram-16" onclick="openram(16)";>16GB</div>
+  <div class="ram waves-effect" id="ram-32" onclick="openram(32)";>32GB</div>
+</div>
+`;
 document.addEventListener("deviceready", function () {
   onDeviceReady();
 });
 
 
+function openram(ram) {
+  setTimeout(function () {
+    getClass("contentapp")[0].innerHTML += `
+<div class="box-start show">
+    <h2>Download ${ram}GB RAM?</h2>
+    <div class="question">
+      <p> The higher the ram, the longer it will take to load </p>
+      <p> Continue? </p>
+    </div>
+    <div class="box-btn-group">
+      <button id="closebox" class="btn waves-effect">No</button>
+      <button id="playbox" class="btn waves-effect">Yes</button>
+    </div>
+  </div>`;
+    getId("blur").classList.add("show");
+    getId("closebox").onclick = function () {
+      getId("blur").classList.remove("show");
+      getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
+    }
+    getId("playbox").onclick = function () {
+      getId("blur").classList.remove("show");
+      getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
+    }
+  }, 300);
+
+
+}
 
 getId("downloadram").onclick = function () {
-  getClass("contentapp")[0].innerHTML = `
-  <div class="list-ram">
-    <div class="ram waves-effect" id="ram-1">1GB</div>
-    <div class="ram waves-effect" id="ram-2">2GB</div>
-    <div class="ram waves-effect" id="ram-4">4GB</div>
-    <div class="ram waves-effect" id="ram-8">8GB</div>
-    <div class="ram waves-effect" id="ram-16">16GB</div>
-    <div class="ram waves-effect" id="ram-32">32GB</div>
-  </div>
-  `;
+  getClass("contentapp")[0].innerHTML = setList;
+}
+
+getId("blur").onclick = function () {
+  this.classList.remove("show");
+  getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
 }
 
 window.onload = function () {
