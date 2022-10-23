@@ -204,6 +204,7 @@ window.onload = function () {
   }
 
   document.getElementsByClassName("nr-ram")[0].innerText = nrRam;
+  AdMob.removeBanner();
 }
 getClass("love")[0].onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.downloadmoreram");
