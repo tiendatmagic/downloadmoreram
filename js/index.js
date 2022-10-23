@@ -71,11 +71,15 @@ function openram(ram) {
     getId("playbox").onclick = function () {
       getId("blur").classList.remove("show");
       getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
-      AdMob.prepareInterstitial({
-        adId: admobid.interstitial,
-        isTesting: true,
-        autoShow: true,
-      });
+      try {
+        AdMob.prepareInterstitial({
+          adId: admobid.interstitial,
+          isTesting: true,
+          autoShow: true,
+        });
+      } catch (error) {
+
+      }
       runDownloadRam(ram);
     }
   }, 300);

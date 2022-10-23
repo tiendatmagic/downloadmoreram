@@ -305,6 +305,7 @@ html {
 .box-start h2 {
   font-size: 18px;
   font-weight: 100;
+  font-family: "Open San", sans-serif;
 }
 .contentapp.dark .box-start h2 {
   color: #fff;
@@ -319,6 +320,7 @@ html {
 }
 .box-start > div.question p {
   font-size: 16px;
+  font-family: "Open San", sans-serif;
 }
 .box-start > div.box-btn-group {
   display: flex;
