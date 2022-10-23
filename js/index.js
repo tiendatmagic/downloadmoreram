@@ -41,9 +41,15 @@ var setList = `
 document.addEventListener("deviceready", function () {
   onDeviceReady();
 });
-
+function onDeviceReady() {
+  document.addEventListener("backbutton", onBackButton, false);
+}
+function onBackButton() {
+  location.reload();
+}
 function openram(ram) {
   setTimeout(function () {
+
     getClass("contentapp")[0].innerHTML += `
 <div class="box-start show">
     <h2>Download ${ram}GB RAM?</h2>
@@ -56,13 +62,13 @@ function openram(ram) {
       <button id="playbox" class="btn waves-effect">Yes</button>
     </div>
   </div>`;
+
     getId("blur").classList.add("show");
     getId("closebox").onclick = function () {
       getId("blur").classList.remove("show");
       getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
     }
     getId("playbox").onclick = function () {
-
       getId("blur").classList.remove("show");
       getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
       runDownloadRam(ram);
