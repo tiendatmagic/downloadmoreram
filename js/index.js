@@ -67,11 +67,29 @@ function openram(ram) {
       getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
     }
     getId("playbox").onclick = function () {
+
       getId("blur").classList.remove("show");
       getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
+      runDownloadRam();
     }
   }, 300);
+}
+var loadram = 0;
+function runDownloadRam() {
+  setInterval(function () {
 
+    getClass("contentapp")[0].innerHTML = `
+      <div class="information">
+      <div class="ramInfo">
+        <span> ${loadram}% </span>
+      </div>
+    </div>
+    <div class="btn waves-effect bg-danger" id="cancelram" onclick="location.reload();">
+      <button>Cancel</button>
+    </div>
+      `;
+    loadram++;
+  }, 1000);
 
 }
 
