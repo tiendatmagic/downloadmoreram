@@ -73,11 +73,7 @@ function openram(ram) {
       getId("blur").classList.remove("show");
       getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
       try {
-        AdMob.prepareInterstitial({
-          adId: admobid.interstitial,
-          isTesting: true,
-          autoShow: true,
-        });
+        watchAdMob();
       } catch (error) {
 
       }
@@ -124,14 +120,14 @@ function runDownloadRam(ram) {
       location.reload();
     }
   }, (getRam * 30) / 1.3);
-  AdMob.createBanner({
-    adId: admobid.banner,
-    position: AdMob.AD_POSITION.BOTTOM_CENTER,
-    isTesting: true,
-    overlap: false,
-    offsetTopBar: false,
-    bgColor: 'black'
-  });
+  // AdMob.createBanner({
+  //   adId: admobid.banner,
+  //   position: AdMob.AD_POSITION.BOTTOM_CENTER,
+  //   isTesting: true,
+  //   overlap: false,
+  //   offsetTopBar: false,
+  //   bgColor: 'black'
+  // });
 }
 
 getId("downloadram").onclick = function () {
@@ -243,11 +239,7 @@ getId("list5").onclick = function () {
     getClass("contentapp")[0].classList.remove("dark");
     getClass("list-group")[0].classList.remove("dark");
   }
-  AdMob.prepareInterstitial({
-    adId: admobid.interstitial,
-    isTesting: true,
-    autoShow: true,
-  });
+  watchAdMob();
 }
 getId("list1").onclick = function () {
   getClass("contentapp")[0].innerHTML = `
@@ -256,6 +248,8 @@ getId("list1").onclick = function () {
   <p> As said in the description, this is a prank app for you to prank others. The app doesn't really work </p>
   </div>
   `;
+  openmenu = false;
+  checkOpenMenu();
 }
 getId("list2").onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
@@ -270,4 +264,11 @@ function checkOpenMenu() {
   } else {
     getClass("list-group")[0].classList.remove("show");
   }
+}
+function watchAdMob() {
+  // AdMob.prepareInterstitial({
+  //   adId: admobid.interstitial,
+  //   isTesting: true,
+  //   autoShow: true,
+  // });
 }
