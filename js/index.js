@@ -246,8 +246,14 @@ getId("list1").onclick = function () {
   <div class="text-desc">
   <p> Why is the application not working? </p>
   <p> As said in the description, this is a prank app for you to prank others. The app doesn't really work </p>
+  <div class="box-btn-group text-center">
+  <button id="closebox" class="btn waves-effect">Quay lại</button>
+  </div>
   </div>
   `;
+  getId("closebox").onclick = function () {
+    location.reload();
+  }
   openmenu = false;
   checkOpenMenu();
 }
