@@ -247,7 +247,7 @@ getId("list1").onclick = function () {
   <p> Why is the application not working? </p>
   <p> As said in the description, this is a prank app for you to prank others. The app doesn't really work </p>
   <div class="box-btn-group text-center">
-  <button id="closebox" class="btn waves-effect">Quay lại</button>
+  <button id="closebox" class="btn waves-effect">Back</button>
   </div>
   </div>
   `;
@@ -258,7 +258,7 @@ getId("list1").onclick = function () {
   checkOpenMenu();
 }
 getId("list2").onclick = function () {
-  cordova.plugins.market.open("com.tiendatmagic.tapcounter");
+  cordova.plugins.market.open("com.tiendatmagic.downloadmoreram");
 }
 getId("list6").onclick = function () {
   cordova.plugins.codeplay_shareapk.openShare("Download More Ram");
