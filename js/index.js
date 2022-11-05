@@ -25,8 +25,8 @@ if (candarkmode == null || candarkmode == "") {
 }
 
 var admobid = {
-  interstitial: "",
-  banner: ""
+  interstitial: "ca-app-pub-2636216160874899/7658922266",
+  banner: "ca-app-pub-2636216160874899/3172882349"
 };
 
 var setList = `
@@ -120,14 +120,14 @@ function runDownloadRam(ram) {
       location.reload();
     }
   }, (getRam * 30) / 1.3);
-  // AdMob.createBanner({
-  //   adId: admobid.banner,
-  //   position: AdMob.AD_POSITION.BOTTOM_CENTER,
-  //   isTesting: true,
-  //   overlap: false,
-  //   offsetTopBar: false,
-  //   bgColor: 'black'
-  // });
+  AdMob.createBanner({
+    adId: admobid.banner,
+    position: AdMob.AD_POSITION.BOTTOM_CENTER,
+    isTesting: true,
+    overlap: false,
+    offsetTopBar: false,
+    bgColor: 'black'
+  });
 }
 
 getId("downloadram").onclick = function () {
@@ -153,15 +153,15 @@ window.onload = function () {
   setTimeout(function () {
     getQueryAll("body")[0].classList.add("show");
   }, 100);
-  // alert(
-  //   "Memory:" + cordova.plugins['extended-device-information'].memory +
-  //   "CPU:" + cordova.plugins['extended-device-information'].cpumhz +
-  //   "totalstorage:" + cordova.plugins['extended-device-information'].totalstorage +
-  //   "freestorage:" + cordova.plugins['extended-device-information'].freestorage
-  // )
-  // alert(cordova.plugins['extended-device-information'].memory);
+  alert(
+    "Memory:" + cordova.plugins['extended-device-information'].memory +
+    "CPU:" + cordova.plugins['extended-device-information'].cpumhz +
+    "totalstorage:" + cordova.plugins['extended-device-information'].totalstorage +
+    "freestorage:" + cordova.plugins['extended-device-information'].freestorage
+  )
+  // alert(cordova.plugins['extended-device-information'].freememory);
 
-  //
+
 
   var nrRam = JSON.parse(localStorage.getItem("totalram"));
   if (nrRam == null || nrRam == "") {
@@ -272,9 +272,9 @@ function checkOpenMenu() {
   }
 }
 function watchAdMob() {
-  // AdMob.prepareInterstitial({
-  //   adId: admobid.interstitial,
-  //   isTesting: true,
-  //   autoShow: true,
-  // });
+  AdMob.prepareInterstitial({
+    adId: admobid.interstitial,
+    isTesting: true,
+    autoShow: true,
+  });
 }
