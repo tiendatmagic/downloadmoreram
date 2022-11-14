@@ -153,12 +153,12 @@ window.onload = function () {
   setTimeout(function () {
     getQueryAll("body")[0].classList.add("show");
   }, 100);
-  alert(
-    "Memory:" + cordova.plugins['extended-device-information'].memory +
-    "CPU:" + cordova.plugins['extended-device-information'].cpumhz +
-    "totalstorage:" + cordova.plugins['extended-device-information'].totalstorage +
-    "freestorage:" + cordova.plugins['extended-device-information'].freestorage
-  )
+  // alert(
+  //   "Memory:" + cordova.plugins['extended-device-information'].memory +
+  //   "CPU:" + cordova.plugins['extended-device-information'].cpumhz +
+  //   "totalstorage:" + cordova.plugins['extended-device-information'].totalstorage +
+  //   "freestorage:" + cordova.plugins['extended-device-information'].freestorage
+  // )
   // alert(cordova.plugins['extended-device-information'].freememory);
 
 
