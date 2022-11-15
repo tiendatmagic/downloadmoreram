@@ -179,12 +179,41 @@ html {
   align-items: center;
   flex-direction: column;
   border-radius: 50%;
-  border-radius: 50%;
   background: #fff;
   box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgb(0 0 0 / 10%),
     0px -4px 6px -4px rgb(0 0 0 / 10%);
+  position: relative;
 }
 
+.contentapp .information.animation::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border-width: 10px;
+  border: 10px solid #3f51b5;
+  border-top-style: solid;
+  border-top-color: #fff;
+  border-bottom-style: solid;
+  border-bottom-color: #fff;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  animation: rotate 0.7s linear infinite;
+}
+
+.contentapp.dark .information.animation::after {
+  border-top-style: solid;
+  border-top-color: #272727;
+  border-bottom-style: solid;
+  border-bottom-color: #272727;
+}
+@keyframes rotate {
+  to {
+    transform: rotate(180deg);
+  }
+}
 .contentapp .information h2 {
   font-size: 30px;
   font-weight: 500;

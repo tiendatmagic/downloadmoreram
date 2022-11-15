@@ -91,6 +91,7 @@ function runDownloadRam(ram) {
   <button>Cancel</button>
 </div>
   `;
+  getClass("information")[0].classList.add("animation");
   var run = setInterval(function () {
     if (loadram < 100) {
       loadram++;
