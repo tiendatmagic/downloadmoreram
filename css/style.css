@@ -194,6 +194,10 @@ html {
   font-size: 50px;
   text-align: center;
 }
+.contentapp .information .androidVersion span {
+  font-size: 20px;
+  text-align: center;
+}
 .contentapp .btn button {
   display: block;
   margin: 0 auto;
