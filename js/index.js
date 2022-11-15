@@ -73,11 +73,6 @@ function openram(ram) {
     getId("playbox").onclick = function () {
       getId("blur").classList.remove("show");
       getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
-      try {
-        watchAdMob();
-      } catch (error) {
-
-      }
       runDownloadRam(ram);
     }
   }, 350);
@@ -107,6 +102,11 @@ function runDownloadRam(ram) {
       getId("cancelram").classList.add("bg-success");
       getId("cancelram").innerHTML = `<button> Success</button>`;
       totalram = getRam;
+      try {
+        watchAdMob();
+      } catch (error) {
+
+      }
       function totalRam() {
         try {
           return getRAMInfo();
