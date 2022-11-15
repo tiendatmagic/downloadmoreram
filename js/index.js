@@ -44,6 +44,7 @@ document.addEventListener("deviceready", function () {
 });
 function onDeviceReady() {
   document.addEventListener("backbutton", onBackButton, false);
+  getId("androidVersion").innerText = device.version;
 }
 function onBackButton() {
   location.reload();
@@ -120,6 +121,11 @@ function runDownloadRam(ram) {
       location.reload();
     }
   }, (getRam * 30) / 1.3);
+
+}
+
+getId("downloadram").onclick = function () {
+  getClass("contentapp")[0].innerHTML = setList;
   AdMob.createBanner({
     adId: admobid.banner,
     position: AdMob.AD_POSITION.BOTTOM_CENTER,
@@ -128,10 +134,6 @@ function runDownloadRam(ram) {
     offsetTopBar: false,
     bgColor: 'black'
   });
-}
-
-getId("downloadram").onclick = function () {
-  getClass("contentapp")[0].innerHTML = setList;
 }
 
 getId("blur").onclick = function () {
