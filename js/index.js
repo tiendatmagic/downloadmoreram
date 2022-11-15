@@ -245,8 +245,9 @@ getId("list1").onclick = function () {
   getClass("contentapp")[0].innerHTML = `
   <div class="text-desc">
   <p> Why is the application not working? </p>
-  <p> As said in the description, this is a prank app for you to prank others. The app doesn't really work </p>
-  <div class="box-btn-group text-center">
+  <p class="text"> As said in the description, this is a prank app for you to prank others</p>
+  <p class="text"> The app doesn't really work </p>
+  <div class="box-btn-group text-center mb-10">
   <button id="closebox" class="btn waves-effect">Back</button>
   </div>
   </div>
