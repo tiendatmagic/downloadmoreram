@@ -109,6 +109,11 @@ function runDownloadRam(ram) {
       getId("cancelram").innerHTML = `<button> Success</button>`;
       totalram = getRam;
       try {
+        AdMob.removeBanner();
+      } catch (error) {
+
+      }
+      try {
         watchAdMob();
       } catch (error) {
 
