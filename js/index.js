@@ -23,6 +23,11 @@ if (candarkmode == null || candarkmode == "") {
   candarkmode = false;
   localStorage.setItem("candarkmode", JSON.stringify(candarkmode));
 }
+var onLoadAdmob = JSON.parse(localStorage.getItem("onLoadAdmob"));;
+if (onLoadAdmob == null || onLoadAdmob == "") {
+  onLoadAdmob = false;
+  localStorage.setItem("onLoadAdmob", JSON.stringify(onLoadAdmob));
+}
 
 var admobid = {
   interstitial: "ca-app-pub-2636216160874899/7658922266",
@@ -164,6 +169,11 @@ window.onload = function () {
   // )
   // alert(cordova.plugins['extended-device-information'].freememory);
 
+  if (!onLoadAdmob) {
+    watchAdMob();
+    onLoadAdmob = true;
+    localStorage.setItem("onLoadAdmob", JSON.stringify(onLoadAdmob));
+  }
 
 
   var nrRam = JSON.parse(localStorage.getItem("totalram"));
@@ -203,7 +213,11 @@ window.onload = function () {
   }
 
   document.getElementsByClassName("nr-ram")[0].innerText = nrRam;
-  AdMob.removeBanner();
+  try {
+    AdMob.removeBanner();
+  } catch (error) {
+
+  }
 }
 getClass("love")[0].onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.downloadmoreram");
