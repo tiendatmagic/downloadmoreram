@@ -128,11 +128,14 @@ function runDownloadRam(ram) {
 
       localStorage.setItem("totalram", JSON.stringify(Number(JSON.parse(localStorage.getItem("totalram")) + totalram)));
     }
+
     getId("cancelram").onclick = function () {
       location.reload();
+      if (this.classList.contains('bg-danger')) {
+        watchAdMob();
+      }
     }
   }, (getRam * 30) / 1.3);
-
 }
 
 getId("downloadram").onclick = function () {
