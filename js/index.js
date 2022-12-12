@@ -217,7 +217,7 @@ window.onload = function () {
     }
   }
 
-  document.getElementsByClassName("nr-ram")[0].innerText = nrRam;
+  document.getElementsByClassName("nr-ram")[0].innerText = Math.round(nrRam * 100) / 100;
   try {
     AdMob.removeBanner();
   } catch (error) {
@@ -295,9 +295,15 @@ function checkOpenMenu() {
   }
 }
 function watchAdMob() {
-  AdMob.prepareInterstitial({
-    adId: admobid.interstitial,
-    isTesting: true,
-    autoShow: true,
-  });
+  if (AdMob) {
+    AdMob.prepareInterstitial({
+      adId: admobid.interstitial,
+      isTesting: true,
+      autoShow: true,
+    });
+  }
+
+  if (AdMob) {
+    AdMob.showInterstitial();
+  }
 }
