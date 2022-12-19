@@ -25,8 +25,12 @@ if (candarkmode == null || candarkmode == "") {
 }
 var onLoadAdmob = JSON.parse(localStorage.getItem("onLoadAdmob"));;
 if (onLoadAdmob == null || onLoadAdmob == "") {
-  onLoadAdmob = false;
-  localStorage.setItem("onLoadAdmob", JSON.stringify(onLoadAdmob));
+  // var d = new Date(`${new Date().getMonth()}/${new Date().getDate()}/${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes() + 1}:${new Date().getSeconds()}`);
+  // localStorage.setItem("onLoadAdmob", JSON.stringify(d.getTime()));
+
+  var d = new Date(`${(new Date().getMonth() + 1)}/${new Date().getDate()}/${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes() + 1}:${new Date().getSeconds()}`);
+  localStorage.setItem("onLoadAdmob", JSON.stringify(d.getTime()));
+
 }
 
 var admobid = {
@@ -155,6 +159,7 @@ getId("blur").onclick = function () {
   getClass("box-start")[0].remove(); getClass("contentapp")[0].innerHTML = setList;
 }
 
+
 window.onload = function () {
   candarkmode = JSON.parse(localStorage.getItem("candarkmode"));
 
@@ -177,10 +182,11 @@ window.onload = function () {
   // )
   // alert(cordova.plugins['extended-device-information'].freememory);
 
-  if (!onLoadAdmob) {
+  if (new Date().getTime() >= parseInt(localStorage.getItem('onLoadAdmob').toString())
+  ) {
     watchAdMob();
-    onLoadAdmob = true;
-    localStorage.setItem("onLoadAdmob", JSON.stringify(onLoadAdmob));
+    var d = new Date(`${(new Date().getMonth() + 1)}/${new Date().getDate()}/${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes() + 1}:${new Date().getSeconds()}`);
+    localStorage.setItem("onLoadAdmob", JSON.stringify(d.getTime()));
   }
 
 
