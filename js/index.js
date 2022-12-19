@@ -135,7 +135,7 @@ function runDownloadRam(ram) {
         watchAdMob();
       }
     }
-  }, (getRam * 30) / 1.3);
+  }, (getRam * 30) / 1.6);
 }
 
 getId("downloadram").onclick = function () {
