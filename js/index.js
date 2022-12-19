@@ -25,12 +25,8 @@ if (candarkmode == null || candarkmode == "") {
 }
 var onLoadAdmob = JSON.parse(localStorage.getItem("onLoadAdmob"));;
 if (onLoadAdmob == null || onLoadAdmob == "") {
-  // var d = new Date(`${new Date().getMonth()}/${new Date().getDate()}/${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes() + 1}:${new Date().getSeconds()}`);
-  // localStorage.setItem("onLoadAdmob", JSON.stringify(d.getTime()));
-
   var d = new Date(`${(new Date().getMonth() + 1)}/${new Date().getDate()}/${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes() + 1}:${new Date().getSeconds()}`);
   localStorage.setItem("onLoadAdmob", JSON.stringify(d.getTime()));
-
 }
 
 var admobid = {
