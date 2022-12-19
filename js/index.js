@@ -180,9 +180,9 @@ window.onload = function () {
 
   if (new Date().getTime() >= parseInt(localStorage.getItem('onLoadAdmob').toString())
   ) {
-    watchAdMob();
     var d = new Date(`${(new Date().getMonth() + 1)}/${new Date().getDate()}/${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes() + 1}:${new Date().getSeconds()}`);
     localStorage.setItem("onLoadAdmob", JSON.stringify(d.getTime()));
+    watchAdMob();
   }
 
 
