@@ -247,6 +247,7 @@ html {
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: scroll;
 }
 .contentapp.dark .list-ram .ram {
   background: #272727;

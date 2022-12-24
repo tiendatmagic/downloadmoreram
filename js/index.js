@@ -42,6 +42,8 @@ var setList = `
   <div class="ram waves-effect" id="ram-8" onclick="openram(8)";>8GB</div>
   <div class="ram waves-effect" id="ram-16" onclick="openram(16)";>16GB</div>
   <div class="ram waves-effect" id="ram-32" onclick="openram(32)";>32GB</div>
+    <div class="ram waves-effect" id="ram-16" onclick="openram(64)";>64GB</div>
+  <div class="ram waves-effect" id="ram-32" onclick="openram(128)";>128GB</div>
 </div>
 `;
 document.addEventListener("deviceready", function () {
@@ -135,7 +137,7 @@ function runDownloadRam(ram) {
         watchAdMob();
       }
     }
-  }, (getRam * 30) / 1.6);
+  }, (getRam * 30) / 2);
 }
 
 getId("downloadram").onclick = function () {
