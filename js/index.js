@@ -102,7 +102,13 @@ function runDownloadRam(ram) {
   var run = setInterval(function () {
     if (loadram < 100) {
       loadram++;
+
       getClass("ramInfo")[0].innerHTML = `<span> ${loadram}% </span>`;
+      if (getRam >= 64) {
+        if (loadram == 5 || loadram == 50) {
+          watchAdMob();
+        }
+      }
     }
     else {
       clearInterval(run);
